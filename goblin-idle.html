@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Goblin Idle | Game Development Portfolio</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<main class="subpage-shell project-page">
+		<a class="back-link" href="index.html">← Back to home</a>
+
+		<div class="project-hero">
+			<video class="project-hero-video" autoplay muted loop playsinline>
+				<source src="previews/goblin-idle.mp4" type="video/mp4">
+			</video>
+			<div class="project-hero-overlay"></div>
+			<div class="project-hero-copy">
+				<p class="project-kicker">Project</p>
+				<h1>Goblin Idle - Unity C# Prototype</h1>
+			</div>
+		</div>
+
+		<section class="project-section">
+			<h2>Concept</h2>
+			<p>My idea was to make a idle game, but one that is more interactive with smooth, satisfying progression. Player start with a simple tower, and a enemies spawning into the arena at a slow phase. As the tower kills more and more enemies, the player can add more towers, upgrade the existing ones, and increase the rate of which enemies spawn and the loot that is yielded.</p>
+			<p><strong>Source code can be found in the project page</strong></p>
+			<img src="images/chaos.png" alt="Chaos gameplay concept" />
+		</section>
+
+		<section class="project-section">
+			<h2>🎴 Cards</h2>
+			<p>This is the core concept behind unlocking new towers and upgrades. As the player kills more and more enemies, they have a chance to drop cards. These cards can be upgrades, new towers, new enemy types. Once a player has unlocked a card they are able to use it to increase the rate at which they are gathering money.</p>
+			<img src="images/cardsv2.png" alt="Cards" />
+			<p>Card are split up into the classic RPG rarity system:</p>
+			<ul>
+				<li>Common</li>
+				<li>Uncommon</li>
+				<li>Rare</li>
+				<li>Epic</li>
+				<li>Legendary</li>
+			</ul>
+			<p>The chance of each respective rarity dropping are increasingly small. This adds some level of randomness to the progression.</p>
+			<p><strong>Code:</strong> Cards are implemented using a abstract class and scriptable objects. New card behavior is easy to implement using abstraction, and is easily tweakable to its respective towers using scriptable objects.</p>
+		</section>
+
+		<section class="project-section">
+			<h2>🏹 Towers</h2>
+			<img src="images/towersv2.png" alt="Towers" />
+			<p>This is the players way to kill enemies that spawn into the stage. All towers have their own respective stats, xp, and level. Once a tower levels up, you get a deck of 3 random upgrade cards you can choose from from the available cards that the player has unlocked. This adds another layer of randomness to the game.</p>
+			<p>Towers have different behaviors. Some target nearby enemies, some deploy traps, but they all have common stats making the upgrade system work without needing to implement new cards for every tower.</p>
+			<img src="images/upgrades.png" alt="Tower upgrades" />
+			<p>The towers also visually update upon receiving upgrades, and you can mix and match different upgrades to get unique looks to your towers.</p>
+
+            <p><strong>Code:</strong> Towers have a class structure consisting of the base tower class, and the cannon. The cannon.cs specifies behavior for each tower type, while the base structure class acts as a abstract class which holds level, current xp.
+            
+            All towers are placed by using currency to drag them out in a grid</p>
+		</section>
+
+		<section class="project-section">
+			<h2>🧌 Enemies</h2>
+			<ul>
+				<li>Spawns from portals located around the map</li>
+				<li>Simple behavior, runs frantically around the map</li>
+				<li>Drops loot upon death that player can use to upgrade or add new towers</li>
+				<li>Every enemy has different resistances, elemental damage system implemented</li>
+			</ul>
+			<img src="images/enemies.png" alt="Enemies" />
+			<p><strong>Code:</strong> Pathfinding is very simple so far, no search algorithms used yet. They simply find a random position within bounds and run to that position. Once it reaches the position it repeats the process.</p>
+		</section>
+
+		<section class="project-section">
+			<h2>⏱️ Idle game</h2>
+			<p>The game currently doesnt have a win or loss condition. it simply progressivly increases how much coins you get per second (or wave of enemy).</p>
+		</section>
+	</main>
+</body>
+</html>
