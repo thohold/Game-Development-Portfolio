@@ -24,17 +24,17 @@
 
         <section class="project-section">
 			<h2>Concept</h2>
-			<p>T.A.R.P is a 3-6 player co-op horror survival game set in a remote Arctic research station. Players must cooperate in a unique assymetrical way to finish missions, gain better equipment, and delve deeper into the overrun facility .</p>
+			<p>T.A.R.P is a 3-6 player co-op horror survival game set in a remote Arctic research station. Players must cooperate in a unique asymetrical way to finish missions, gain better equipment, and delve deeper into the overrun facility .</p>
 			<img src="images/tarp0.png" alt="Two players in T.A.R.P" />
 		</section>
 
 		<section class="project-section">
 			<h2>Overseer & Cleaners</h2>
             <h3>Overseer</h3>
-            <p>Being a assymetrical co-op game, you get to chose on of your friends to play as an overseer. The overseer acts like a team leader, guiding the players through the facility and trying to make sure everyone survives. The overseer does not enter the map like the cleaners dressed in hazmat suits do. Overseers instead sit on a desktop like mini-game with a complete map of the facility. The overseers get clues to how the cleaners will reach the objectives and warn them of potential dangers.</p>
+            <p>Being a assymetrical co-op game, you get to choose on of your friends to play as an overseer. The overseer acts like a team leader, guiding the players through the facility and trying to make sure everyone survives. The overseer does not enter the map like the cleaners dressed in hazmat suits do. Overseers instead sit on a desktop like mini-game with a complete map of the facility. The overseers get clues to how the cleaners will reach the objectives and warn them of potential dangers.</p>
             <h3>Cleaners</h3>
             <p>Dressed in hazmat suits and gasmasks, the cleaners are the players that enter the facility to complete objectives. The cleaners are
-		    responsible for navigating the overrun facility, slowly restoring the facility to its original state. Dont get fooled by the name "cleaner", their work is quite dangerous. Sometimes cleaning means gathering documents and removing contaminated materials. Other times it means stopping foreign creatures, avoiding unknown entities, gathering lost research documents
+		    responsible for navigating the overrun facility, slowly restoring the facility to its original state. Don't get fooled by the name "cleaner", their work is quite dangerous. Sometimes cleaning means gathering documents and removing contaminated materials. Other times it means stopping foreign creatures, avoiding unknown entities, gathering lost research documents
         </section>
 
 
@@ -47,7 +47,7 @@
             </video>
             <h4>Room Prefabs and Breadth-first search</h4>
             <p>The maps are procedurally generated using room prefabs with different sizes, layouts and content. The algorithm places the map room by room using BFS, and connects them using the rooms "sockets". The sockets are the blue and red boxes you see in the video above. Sockets can only connect to sockets of the same size, and the opposite color.
-                The map.cs scripts saves the map layout in a RectInt footprint to check for overlaps. The rooms are made and measured to fit a standard so that rooms are perfectly aligned with unitys units to avoid gaps or overlaps.</p>
+                The map.cs scripts saves the map layout in a RectInt footprint to check for overlaps. The rooms are made and measured to fit a standard so that rooms are perfectly aligned with Unity's units to avoid gaps or overlaps.</p>
             <h4>Backtracking</h4>
             <p> The algorithm also has different settings that the map generator will try to meet during generation. For example if it doesnt reach its goal room count, it will backtrack, and try a different configuration</p>
             <video class="project-section-video" autoplay muted loop playsinline>
@@ -56,20 +56,20 @@
             <h4>Caps and spawning</h4>
             <p> When the layout is complete it will then enter a closing process, placing "caps". A cap can be a doorway, a hall opening. It essentially creates the connection between 2 rooms using a cap prefab, or for sockets that were never connected it closes them using walls. It will also spawn entities and items according to the map settings when all caps are placed and the first player spawns in</p>
             <h3>Networking</h3>
-            <p>Using unitys Multiplayer Center and the Netcode for GameObjects package, the game will allow players to host lobbies for themselves and their friends. The shared gameplay aspects are decided by the server, like for example: damage, health, items, enemies/entities, and objects in the map. Each client owns their own players network object, and the server syncs the position and state of each player.
+            <p>Using Unity's Multiplayer Center and the Netcode for GameObjects package, the game will allow players to host lobbies for themselves and their friends. The shared gameplay aspects are decided by the server, like for example: damage, health, items, enemies/entities, and objects in the map. Each client owns their own players network object, and the server syncs the position and state of each player.
                 Using this system the host essentially becomes the server, and the other players are clients.</p>
             <h4>RPC (Remote Procedure Calls)</h4>
             <p>Everytime a player performs an action that needs to be synchronized between the clients, it sends a request to the server. The server then performs the action requested</p>
             <h3>Player</h3>
             <h4>Movement</h4>
-            <p>The player moves using unitys input system and a character controller, calculating velocity and drag in a script. With a classic groundcheck using the normal of the object below it to determine if the player is grounded or not instead of using a ground layer. The player can crouch, jump, sprint in the current iteration.</p>
+            <p>The player moves using Unity's input system and a character controller, calculating velocity and drag in a script. With a classic groundcheck using the normal of the object below it to determine if the player is grounded or not instead of using a ground layer. The player can crouch, jump, sprint in the current iteration.</p>
             <h4>Interaction</h4>
             <p>The players have a interaction system using raycasting to detect objects that have the IInteractable interface implemented. Using the IInteractable.cs interface and the InteractableBase.cs it allows for interactable objects to define their own behavior.</p>
             <video class="project-section-video" autoplay muted loop playsinline>
                 <source src="previews/player.mp4" type="video/mp4">
             </video>
             <h4>Visuals</h4>
-            <p>The player consist of a FPS model and a seperate remote model that are fully animated with their own animations. When spawning the client first checks what player is their own, and disables the remote rig visually. It does the same for players who are not their own, but instead disables their FPS model.</p>
+            <p>The player consists of a FPS model and a separate remote model that are fully animated with their own animations. When spawning the client first checks what player is their own, and disables the remote rig visually. It does the same for players who are not their own, but instead disables their FPS model.</p>
         </section>
 	</main>
 </body>
