@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>T.A.R.P Devlog 01</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<main class="subpage-shell project-page">
+		<a class="back-link" href="tarp-devlogs.html">← Back to devlogs</a>
+
+		<div class="project-hero">
+			<video class="project-hero-video" autoplay muted loop playsinline>
+				<source src="previews/devlog1.mp4" type="video/mp4">
+			</video>
+			<div class="project-hero-overlay"></div>
+			<div class="project-hero-copy">
+				<p class="project-kicker">Devlog 27.09.2026</p>
+				<h1>Molefleas, new rooms, breakable doors</h1>
+			</div>
+		</div>
+
+		<section class="project-section">
+            <img src="images/moleflea.png" alt="Moleflea preview" />
+			<h2>New entity: Molefleas</h2>
+			<p>Molefleas is a new territorial enemy that lives in burrows. Burrows can spawn anywhere on the map, and helps create enemy variety and rewards stealthy players.</p>
+            <p>The molefleas is a blind insect like creature that uses its hearing to sense nearby threats.
+                When a player makes too much noise close to a burrow, the molefleas will emerge and investigate. They will crawl towards the the source of disturbance, and if the player doesnt
+                get out of the way in time or keeps making noise, the molefleas will hunt down and attack the player in packs of 2 or more...</p>
+            <video class="project-section-video" autoplay muted loop playsinline>
+                <source src="previews/moleflea-preview.mp4" type="video/mp4">
+            </video>
+            <p>To defeat the molefleas you must block the burrow by sneaking close to it, and holding [E] without making a sound. This makes it so that for a patient player the molefleas doesnt pose a big threat, but for impatient players running around, slamming doors, and screaming into their mic, the molefleas will definitely become an issue.</p>
+		</section>
+
+
+        <section class="project-section">
+            <h2>Breakable doors and enemy door behavior</h2>
+            <p>Using unitys navmesh system combined with the character controller posed some issues. The navmesh that generates post map generation ignores doors so enemies will not view doorways as obstructions. But since im using character controllers enemies would get stuck in doors. This week i worked on a solution, and came up with a new tweakable behavior called: "door behavior" in the config for enemy AI.</p>
+            <video class="project-section-video" autoplay muted loop playsinline>
+                <source src="previews/door-break.mp4" type="video/mp4">
+            </video>
+            <p>There are currently four options for door behavior:</p>
+            <ul>
+                <li><strong>Ignore:</strong> Enemies will ignore doors, this means that they wont do anything when they encounter a door and get stuck.</li>
+                <li><strong>Break when alered:</strong> Enemies will normally ignore doors, but if aggroed in any way or entering the "investigate" state they will break doors to reach their goals</li>
+                <li><strong>Destroy:</strong> More stubborn enemies like the slicer will break doors anytime it comes in their way</li>
+                <li><strong>Open:</strong> Not yet implemented functionally, but im saving this for later when i implement smarter enemies</li>
+            </ul>
+
+        </section>
+
+        <section class="project-section">
+            <h2>New rooms</h2>
+            <p>Ive finally added rooms that can connect to different floors, adding vertical generation.</p>
+            <img src="images/stairs.png" alt="Stairs" />
+            <img src="images/storageroom.png" alt="Storage room" />
+        </section>
+
+        <section class="project-section">
+            <h2>Other fixes</h2>
+            <p>I finally got rid of one of the most annoying bugs, regarding lighting. I learnt that i had max lights per object set to 4, creating black twitching and ugly black spots in the map. By tweaking the shader and setting max lights per object to 8 the map now looks way better.</p>
+
+	</main>
+</body>
+</html>

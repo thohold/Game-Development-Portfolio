@@ -282,8 +282,108 @@ p {
   border: 1px solid var(--line);
 }
 
+.devlog-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 18px;
+}
+
+.devlog-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(10, 28, 41, 0.6);
+}
+
+.devlog-card h3 {
+  margin: 0;
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  color: var(--text);
+}
+
+.devlog-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.devlog-button {
+  width: fit-content;
+  min-width: 180px;
+  margin-top: auto;
+}
+
+.devlog-tag {
+  margin-bottom: 0;
+}
+
+.devlog-archive {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.devlog-sidebar {
+  position: sticky;
+  top: 24px;
+  height: fit-content;
+  padding: 20px 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(8, 22, 34, 0.6);
+}
+
+.devlog-sidebar h3 {
+  margin: 0 0 16px;
+  color: var(--primary);
+  font-size: 0.86rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.devlog-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.devlog-nav-link {
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid rgba(159, 231, 255, 0.18);
+  border-radius: 12px;
+  background: rgba(159, 231, 255, 0.04);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.devlog-nav-link:hover {
+  transform: translateX(2px);
+  border-color: rgba(159, 231, 255, 0.45);
+}
+
+.devlog-archive-main {
+  min-width: 0;
+}
+
+.devlog-archive-main .project-section {
+  margin-top: 0;
+}
+
 @media (max-width: 760px) {
-  .project-grid {
+  .project-grid,
+  .devlog-preview-grid,
+  .devlog-archive {
     grid-template-columns: 1fr;
+  }
+
+  .devlog-sidebar {
+    position: static;
   }
 }
