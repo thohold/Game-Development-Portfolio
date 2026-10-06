@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>T.A.R.P Devlog 02</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<main class="subpage-shell project-page">
+		<a class="back-link" href="tarp-devlogs.html">← Back to devlogs</a>
+
+		<div class="project-hero">
+			<video class="project-hero-video" autoplay muted loop playsinline>
+				<source src="previews/reload-preview.mp4" type="video/mp4">
+			</video>
+			<div class="project-hero-overlay"></div>
+			<div class="project-hero-copy">
+				<p class="project-kicker">Devlog 06.10.2026</p>
+				<h1>Reloading, ammo, new rooms</h1>
+			</div>
+		</div>
+
+		<section class="project-section">
+			<h2>Reloading and Ammo</h2>
+			<p>Instead of having infinite ammo like before, I've now coded in an ammo system with reloading and ammo types. For now, light ammo is the only functional drop, since I only have one firearm implemented: the GK-73. But as I add more weapons, I will expand upon this functionality.</p>
+			<p>Light ammo now spawns in the world randomly on designated spawn points, giving players more reason to explore the map.</p>
+		</section>
+
+		<section class="project-section">
+			<h2>Event system</h2>
+			<p>Instead of spawning enemies at random like most co-op horror games, I've made the foundations of something I call events. Each time you enter a new map, the map will roll a set number of events. These events determine which enemies spawn, which objectives are available, and in some cases which rooms spawn. Since I plan on making my enemies distinct, I want to control the amount of different enemies that spawn to avoid too much chaos.</p>
+			<p>Each event has a severity rating, which determines how strong and how many enemies spawn. I can also implement it so that new enemies and rooms are added as the severity increases.</p>
+			<p>For now, only the "moleflea infestation" event is implemented. But I plan to build the game around this system and already have some ideas.</p>
+		</section>
+
+		<section class="project-section">
+			<h2>New rooms</h2>
+			<p>I've added 2 new room prefabs this week, in addition to cleaning up some prefabs so rooms connect more seamlessly. One of the new rooms I've added is an electrical room, which I plan to implement functionality for and an event for later.</p>
+			<img src="images/tallstaircase.png" alt="Stairs" />
+			<img src="images/electricalroom.png" alt="Electrical room" />
+		</section>
+	</main>
+</body>
+</html>
